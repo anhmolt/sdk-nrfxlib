@@ -9,6 +9,12 @@ Changelog
 
 All notable changes to this project are documented in this file.
 
+nrf_modem 1.5.1
+***************
+
+* interface: mfu: Rename mfu2 to mfu
+* interface: mfu: Removal of DFU socket
+
 nrf_modem 1.4.1
 ***************
 
