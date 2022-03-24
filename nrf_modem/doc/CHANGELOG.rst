@@ -9,6 +9,11 @@ Changelog
 
 All notable changes to this project are documented in this file.
 
+nrf_modem 1.5.3
+***************
+
+n/a
+
 nrf_modem 1.5.2
 ***************
 
