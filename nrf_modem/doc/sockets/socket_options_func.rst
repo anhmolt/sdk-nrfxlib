@@ -81,6 +81,8 @@ The following table shows all socket options supported by the Modem library.
 +------------------+----------------------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
 | NRF_IPPROTO_IPV6 | NRF_SO_IPV6_ECHO_REPLY           | ``int``                | get/set    | Non-zero enables ICMP echo replies on IPv6.                                                |
 +------------------+----------------------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
+| NRF_IPPROTO_IPV6 | NRF_SO_IPV6_DELAYED_ADDR_REFRESH | ``int``                | get/set    | Non-zero delays IPv6 address refresh during power saving mode.                             |
++------------------+----------------------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
 | NRF_IPPROTO_TCP  | NRF_SO_TCP_SRV_SESSTIMEO         | ``int``                | get/set    | Non-zero enables TCP server session timeout after a configurable period of inactivity.     |
 +------------------+----------------------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
 | NRF_SOL_SECURE   | NRF_SO_SEC_TAG_LIST              | ``nrf_sec_tag_t *``    | get/set    | Set/get the security tag associated with a socket.                                         |
@@ -247,6 +249,13 @@ NRF_SO_IPV6_ECHO_REPLY
    Enable ICMP echo replies on IPv6.
    The option value is an integer, a ``0`` value disables echo replies on IPv6.
    Default value is ``1`` (ON).
+
+NRF_SO_IPV6_DELAYED_ADDR_REFRESH
+   By default, if the lifetime of an IPv6 address expires during power saving mode (PSM), the device will wake up solely to refresh the address.
+   With this socket option enabled, the IPv6 address refresh is delayed until the next time the device wakes up from PSM or eDRX sleep.
+   Avoiding unnecessary wake up and optimizing the power usage.
+   The option value is an integer, a ``1`` value enables delayed IPv6 address refresh on IPv6.
+   Default value is ``0`` (OFF).
 
 NRF_SO_TCP_SRV_SESSTIMEO
    Configure the TCP server session inactivity timeout for a socket.
